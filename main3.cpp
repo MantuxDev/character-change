@@ -15,9 +15,9 @@ const char carattere='*'; // carettere da inserire in caso l'elemento sia presen
 
 //prototipi
 int menu();
-void carica(char v1[], char v2[], string &s1,string &s2);
+void carica(char v1[], char v2[], string &s1);
 void sostituisci(char v1[], char v2[], int &z);
-void stampa(char v1[], char v2[], string s1,string s2);
+void stampa(char v1[], char v2[], string s1);
 
 int main(){
 
@@ -26,7 +26,7 @@ int main(){
 	char v1[e1];
 	char v2[e2];
 
-    string s1,s2;
+    string s1;
 
     do{
 
@@ -35,7 +35,7 @@ int main(){
         switch(scelta){
             
             case 1:{
-                carica(v1,v2,s1,s2);
+                carica(v1,v2,s1);
                 break;
             }
 
@@ -45,13 +45,18 @@ int main(){
             }
 
             case 3:{
-                stampa(v1,v2,s1,s2);
+                stampa(v1,v2,s1);
                 break;
             }
 
             case 0:{
                 cout<<"Sei uscito dal programma"<<endl;
             }
+            
+            default:{
+            	cout<<"Scelta sbagliata"<<endl;
+				break;
+			}
         }
 
     }while(scelta!=0);
@@ -92,9 +97,10 @@ int menu(){
     return scegli;
 }
 
-void carica(char v1[], char v2[], string &s1,string &s2){
+void carica(char v1[], char v2[], string &s1){
+	
+	char verifica;
 
-    char verifica;
 	
 	cout<<"-----Vettore1-----"<<endl;
 	
@@ -152,7 +158,6 @@ void carica(char v1[], char v2[], string &s1,string &s2){
 
         if(y==true){
             v2[j]=verifica;
-            s2=s2+v2[j]+",";
         }
 	}
 
@@ -185,7 +190,7 @@ void sostituisci( char v1[], char v2[], int &z){
 	
 }
 
-void stampa(char v1[], char v2[], string s1,string s2){
+void stampa(char v1[], char v2[], string s1){
 
     int s;
 
@@ -203,7 +208,10 @@ void stampa(char v1[], char v2[], string s1,string s2){
         cout<<s1<<endl;
 
         cout<<"\t -----Vettore 2-----"<<endl;
-        cout<<s2<<endl;
+        
+        for(int j=0; j<e2;j++){
+            cout<<v2[j]<<",";
+        }
 
         cout<<endl;
 
