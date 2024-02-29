@@ -53,10 +53,6 @@ int main(){
                 cout<<"Sei uscito dal programma"<<endl;
             }
             
-            default:{
-            	cout<<"Scelta sbagliata"<<endl;
-				break;
-			}
         }
 
     }while(scelta!=0);
